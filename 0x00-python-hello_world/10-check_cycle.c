@@ -1,17 +1,17 @@
 #include "lists.h"
-#include <stdio.h>
 /**
  * check_cycle - checks for cycles in linked lists
- * @head: head node
+ * @list: head node
  * Return: int
  */
-int check_cycle(listint_t *head)
+int check_cycle(listint_t *list)
 {
-	listint_t *slow = head;
-	listint_t *fast = head->next;
+	listint_t *slow, *fast;
 
 	if (head == NULL || head->next == NULL)
 		return (0);
+	slow = list;
+	fast = list->next;
 	while (slow != fast)
 	{
 		if (fast == NULL || fast->next == NULL)
