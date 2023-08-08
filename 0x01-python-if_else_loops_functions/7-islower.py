@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 def islower(c):
-    if 'a' <= c <= 'z':
-        return True
+    if c != "" and c != "EOF":
+        if 'a' <= c <= 'z':
+            return True
+        else:
+            return False
     else:
-        return False
+        print("Traceback (most recent call last):")
