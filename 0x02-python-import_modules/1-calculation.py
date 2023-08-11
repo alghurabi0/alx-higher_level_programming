@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-if ___name___ == "___main___":
+if __name__ == "__main__":
     """ use imported functions"""
     from calculator_1 import add, sub, mul, div
     a = 10
