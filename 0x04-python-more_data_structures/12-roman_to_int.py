@@ -22,6 +22,8 @@ def roman_to_int(roman_string):
                 nums.append(1000)
         if nums[0] == 1:
             nums[0] = -1
+        if nums[len(nums) - 2] == 1 and nums[len(nums) - 1] != 1:
+            nums[len(nums) -2] = -1
         finalSum = 0
         for num in nums:
             finalSum += num
