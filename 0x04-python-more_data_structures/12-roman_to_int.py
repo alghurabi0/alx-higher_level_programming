@@ -20,11 +20,12 @@ def roman_to_int(roman_string):
                 nums.append(500)
             elif char == 'M':
                 nums.append(1000)
-        if nums[0] == 1:
-            nums[0] = -1
-        if nums[len(nums) - 2] == 1 and nums[len(nums) - 1] != 1:
-            nums[len(nums) -2] = -1
-        finalSum = 0
-        for num in nums:
-            finalSum += num
-        return finalSum
+        prev_value = 0
+        total = 0
+        for num in reversed(nums):
+            if num < prev_value:
+                total -= num
+            else:
+                total += num
+                prev_value = num
+        return total
