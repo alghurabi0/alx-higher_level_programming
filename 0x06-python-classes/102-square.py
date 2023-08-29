@@ -24,7 +24,7 @@ class Square:
         Args:
             value: the size value to be set.
             """
-        if not isinstance(value, (int, float)):    
+        if not isinstance(value, (int, float)):
             raise TypeError("size must be a number")
         if value < 0:
             raise ValueError("size must be >= 0")
