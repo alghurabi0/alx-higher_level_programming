@@ -8,16 +8,16 @@ class Node:
         """ Initialization of the Node instance. """
         self.data = data
         self.next_node = next_node
-    
+
     @property
     def data(self):
         """ Gets the data attribute of the instance. """
         return self.__data
-    
+
     @data.setter
     def data(self, value):
         """ Sets the data attribute of the instance.
-    
+
         Args:
             value: integer to set for the data.
             """
@@ -25,24 +25,25 @@ class Node:
             raise TypeError("data must be an integer")
         else:
             self.__data = value
-    
+
     @property
     def next_node(self):
         """ Returns the next_node value of the Node instance. """
         return self.__next_node
-    
+
     @next_node.setter
     def next_node(self, value):
         """ Sets the next_node value of the Node instance.
-        
+
         Args:
             value: Node instance to be set as a next_node value.
             """
-        if value == None or isinstance(value, Node):
+        if value is None or isinstance(value, Node):
             self.__next_node = value
         else:
             raise TypeError("next_node must be a Node object")
-    
+
+
 class SinglyLinkedList:
     """ Defines a SinglyLinkedList classl. """
     def __init__(self):
@@ -59,12 +60,12 @@ class SinglyLinkedList:
             new_node.next_node = self.head
             self.head = new_node
         else:
-            current = self.head
-            while current.next_node is not None and current.next_node.data < value:
-                current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
-    
+            cn = self.head
+            while cn.next_node is not None and cn.next_node.data < value:
+                cn = cn.next_node
+            new_node.next_node = cn.next_node
+            cn.next_node = new_node
+
     def __str__(self):
         """ Format how the list is printed on the screen. """
         result = ""
