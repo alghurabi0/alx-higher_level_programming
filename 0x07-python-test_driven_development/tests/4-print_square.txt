@@ -1,0 +1,28 @@
+# Test cases for the print_square function
+
+>>> print_square = __import__('4-print_square').print_square
+
+# Test 1: size is not an integer
+
+>>> print_square("three")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+# Test 2: size is less than 0
+>>> print_square(-1)
+Traceback (most recent call last):
+ValueError: size must be >= 0
+
+# Test 3: valid input
+>>> print_square(3)
+###
+###
+###
+
+# Test 4: edge case 0 size
+>>> print_square(0)
+<BLANKLINE>
+
+# Test 5: edge case 1 size
+>>> print_square(1)
+#
