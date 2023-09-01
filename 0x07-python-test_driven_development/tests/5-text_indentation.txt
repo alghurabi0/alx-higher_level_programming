@@ -1,0 +1,72 @@
+# Test cases for text_indentation(text) function
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test 1: text is not a string
+
+>>> text_indentation(3233332)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+# Test 2: basic string with periods
+
+>>> text_indentation("This is a sentence. This is another sentence.")
+This is a sentence.
+<BLANKLINE>
+This is another sentence.
+
+# Test Case 3: Basic test with question marks and colons
+
+>>> text_indentation("Is this a question? Yes, it is: with a colon.")
+Is this a question?
+<BLANKLINE>
+Yes, it is:
+<BLANKLINE>
+with a colon.
+
+# Test Case 4: Text with no special characters
+>>> text_indentation("No special characters here")
+No special characters here
+
+# Test Case 5: Empty string
+>>> text_indentation("")
+<BLANKLINE>
+
+# Test Case 6: Text with only special characters
+>>> text_indentation("...???:::")
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+
+# Test Case 7: Text with special characters at the beginning and end
+>>> text_indentation("?.This is a test?:.")
+?
+<BLANKLINE>
+.
+<BLANKLINE>
+This is a test?
+<BLANKLINE>
+:
+<BLANKLINE>
+.
+
+# Test Case 8: Test with multi-line input
+>>> text_indentation("This is a multi-line text.\nIt has two lines.")
+This is a multi-line text.
+<BLANKLINE>
+<BLANKLINE>
+It has two lines.
