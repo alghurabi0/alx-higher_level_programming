@@ -1,0 +1,48 @@
+# Test cases for matrix multiplication function
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+# Test 1: # Test Case 1: Valid input with integer multiplication
+
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+[[58, 64], [139, 154]]
+
+# Test Case 2: Valid input with float multiplication
+
+>>> matrix_mul([[1.0, 2.5], [3.0, 4.5]], [[0.5, 1.5], [2.0, 2.5]])
+[[5.5, 7.75], [10.5, 15.75]]
+
+# Test Case 3: Invalid input - m_a is not a list
+
+>>> matrix_mul(42, [[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+# Test Case 4: Invalid input - m_b is not a list of lists
+
+>>> matrix_mul([[1, 2], [3, 4]], [5, 6])
+Traceback (most recent call last):
+TypeError: m_b must be a list of lists
+
+# Test Case 5: Invalid input - m_a is empty
+>>> matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: m_a can't be empty
+
+# Test Case 6: Invalid input - Element is not an integer or float
+
+>>> matrix_mul([[1, 2], [3, 'four']], [[1.0, 2.5], [3.0, 4.5]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats
+
+# Test Case 7: Invalid input - Not a rectangle (different row sizes)
+
+>>> matrix_mul([[1, 2, 3], [4, 5]], [[1, 2], [3, 4], [5, 6]])
+Traceback (most recent call last):
+TypeError: each row of m_a must be of the same size
+
+# Test Case 8: Invalid input - Incompatible matrix sizes
+
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_a and m_b can't be multiplied
