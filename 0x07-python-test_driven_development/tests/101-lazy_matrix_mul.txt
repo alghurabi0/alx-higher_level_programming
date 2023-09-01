@@ -1,0 +1,49 @@
+# Test cases for matrix multiplication function
+
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+# Test Case 1: Valid input with integer multiplication
+
+>>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+[[58, 64], [139, 154]]
+
+# Test Case 2: Valid input with float multiplication
+
+>>> lazy_matrix_mul([[1.0, 2.5], [3.0, 4.5]], [[0.5, 1.5], [2.0, 2.5]])
+[[5.5, 7.75], [10.5, 15.75]]
+
+# Test Case 3: Invalid input - m_a is not a list
+
+>>> lazy_matrix_mul(42, [[1, 2], [3, 4]])
+Traceback (most recent call last):
+TypeError: m_a must be a list or m_b must be a list
+
+# Test Case 4: Invalid input - m_b is not a list of lists
+
+>>> lazy_matrix_mul([[1, 2], [3, 4]], 42)
+Traceback (most recent call last):
+TypeError: m_a must be a list of lists or m_b must be a list of lists
+
+# Test Case 5: Invalid input - m_a is empty
+>>> lazy_matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: m_a can't be empty or m_b can't be empty
+
+# Test Case 6: Invalid input - Element is not an integer or float
+
+>>> lazy_matrix_mul([[1, 2], [3, 'four']], [[1.0, 2.5], [3.0, 4.5]])
+Traceback (most recent call last):
+TypeError: m_a should contain only integers or floats or m_b should contain only integers or floats
+
+# Test Case 7: Invalid input - Not a rectangle (different row sizes)
+
+>>> lazy_matrix_mul([[1, 2, 3], [4, 5]], [[1, 2], [3, 4], [5, 6]])
+Traceback (most recent call last):
+TypeError: each row of m_a must be of the same size or each row of m_b must be of the same size
+
+# Test Case 8: Invalid input - Incompatible matrix sizes
+
+>>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+ValueError: m_a and m_b can't be multiplied
+
