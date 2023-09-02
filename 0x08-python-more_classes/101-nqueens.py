@@ -3,23 +3,23 @@
 import sys
 
 
-def add_sol(board, ans, n):
+def foundIt(chess, solutions, n):
     """ adds a solution for the puzzle. """
     positions = []
     for i in range(n):
         for j in range(n):
-            if board[i][j] == "Q":
+            if chess[i][j] == "Q":
                 positions.append([i, j])
-    ans.append(positions)
+    solutions.append(positions)
 
 
-def is_safe(row, col, board, n):
+def check(row, col, chess, n):
     """ checks if the solution is possible. """
     x = row
     y = col
 
     while (x >= 0):
-        if board[x][y] == "Q":
+        if chess[x][y] == "Q":
             return False
         else:
             x -= 1
@@ -28,7 +28,7 @@ def is_safe(row, col, board, n):
     y = col
 
     while (y < n and x >= 0):
-        if board[x][y] == "Q":
+        if chess[x][y] == "Q":
             return False
         else:
             y += 1
@@ -38,7 +38,7 @@ def is_safe(row, col, board, n):
     y = col
 
     while (y >= 0 and x >= 0):
-        if board[x][y] == "Q":
+        if chess[x][y] == "Q":
             return False
         else:
             y -= 1
@@ -46,17 +46,17 @@ def is_safe(row, col, board, n):
     return True
 
 
-def solveNQueens(row, ans, board, n):
+def solve(row, solutions, chess, n):
     """ Solves the n queens puzzle. """
     if row == n:
-        add_sol(board, ans, n)
+        foundIt(chess, solutions, n)
         return
 
     for col in range(n):
-        if is_safe(row, col, board, n):
-            board[row][col] = "Q"
-            solveNQueens(row + 1, ans, board, n)
-            board[row][col] = "."
+        if check(row, col, chess, n):
+            chess[row][col] = "Q"
+            solve(row + 1, solutions, chess, n)
+            chess[row][col] = "."
 
 
 if __name__ == "__main__":
@@ -74,11 +74,11 @@ if __name__ == "__main__":
         print("N must be a number")
         sys.exit(1)
 
-    board = [["." for i in range(n)] for j in range(n)]
-    ans = []
-    solveNQueens(0, ans, board, n)
-    if ans == []:
-        print("Solution does not exist")
+    chess = [["." for i in range(n)] for j in range(n)]
+    solutions = []
+    solve(0, solutions, chess, n)
+    if solutions == []:
+        print("0")
     else:
-        for a in ans:
+        for a in solutions:
             print(a)
