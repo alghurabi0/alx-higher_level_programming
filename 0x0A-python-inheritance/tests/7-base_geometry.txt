@@ -1,0 +1,31 @@
+# Import the BaseGeometry class from the parent directory's module
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Test Case 1: Testing the area() method without implementation
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     e.__class__.__name__, str(e)
+('Exception', 'area() is not implemented')
+
+# Test Case 2: Testing the integer_validator() method with valid input
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("width", 10)
+>>> bg.integer_validator("height", 5)
+
+# Test Case 3: Testing the integer_validator() method with non-integer input
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("length", "12")
+... except Exception as e:
+...     e.__class__.__name__, str(e)
+('TypeError', 'length must be an integer')
+
+# Test Case 4: Testing the integer_validator() method with negative value
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("radius", -5)
+... except Exception as e:
+...     e.__class__.__name__, str(e)
+('ValueError', 'radius must be greater than 0')
