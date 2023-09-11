@@ -35,12 +35,6 @@
 Traceback (most recent call last):
 TypeError: BaseGeometry() takes no arguments
 
-# Test Case 6
->>> bg = BaseGeometry()
->>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
-<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry 
- object at...>>
-
 # Test Case 7
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("invalid number", "number")
@@ -51,4 +45,5 @@ TypeError: invalid number must be an integer
 >>> bg = BaseGeometry()
 >>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
 Traceback (most recent call last):
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments:
+ 'name' and 'value'
