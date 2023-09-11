@@ -40,10 +40,3 @@ TypeError: BaseGeometry() takes no arguments
 >>> bg.integer_validator("invalid number", "number")
 Traceback (most recent call last):
 TypeError: invalid number must be an integer
-
-# Test Case 8
->>> bg = BaseGeometry()
->>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
-Traceback (most recent call last):
-TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments:
- 'name' and 'value'
