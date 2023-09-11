@@ -48,3 +48,26 @@
 >>> my_list = MyList([-10, -5, 0, 5, 10])
 >>> my_list.print_sorted()
 [-10, -5, 0, 5, 10]
+
+>>> m = __import__("1-my_list").__doc__
+>>> len(m) > 1
+True
+
+>>> c = __import__("1-my_list").MyList.__doc__
+>>> len(c) > 1
+True
+
+>>> f = __import__("1-my_list").MyList.print_sorted.__doc__
+>>> len(f) > 1
+True
+
+>>> list = MyList()
+>>> list.append(NULL)
+Traceback (most recent call last):
+NameError: name 'NULL' is not defined
+
+>>> list1 = MyList()
+>>> list.append(NaN)
+Traceback (most recent call last):
+    ...
+NameError: name 'NaN' is not defined
