@@ -14,6 +14,7 @@ class Student:
         """ Returns a dict with cls attrs. """
         if isinstance(attrs, list):
             if all(isinstance(attr, str) for attr in attrs):
-                return {attr: getattr(self, attr, None) for attr in attrs if getattr(self, attr, None) is not None}
+                return {attr: getattr(self, attr, None) for attr
+                        in attrs if getattr(self, attr, None) is not None}
 
         return self.__dict__
