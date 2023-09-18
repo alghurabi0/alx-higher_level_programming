@@ -23,8 +23,13 @@ class Base:
         """ returns json string. """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
+        if isinstance(list_dictionaries, list):
+            if all(isinstance(i, dict) for i in list_dictionaries):
+                return json.dumps(list_dictionaries)
+            else:
+                raise TypeError
         else:
-            return json.dumps(list_dictionaries)
+            raise TypeError
 
     @classmethod
     def save_to_file(cls, list_objs):
