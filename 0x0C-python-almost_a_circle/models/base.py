@@ -152,10 +152,10 @@ class Base:
             if cls == Rectangle:
                 for row in reader:
                     data_dict = {
-                            "id": int(row[0]),
+                            "id": int(row[2]),
                             "width": int(row[1]),
-                            "height": int(row[2]),
-                            "x": int(row[3]),
+                            "height": int(row[3]),
+                            "x": int(row[0]),
                             "y": int(row[4])
                             }
                     dicts.append(data_dict)
