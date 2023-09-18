@@ -105,6 +105,11 @@ class Base:
         from models.rectangle import Rectangle
         from models.square import Square
 
+        if list_objs is None or list_objs == []:
+            filename = cls.__name__ + ".csv"
+            with open(filename, 'w') as file:
+                file.write("[]")
+            return
         rects = []
         squares = []
         for i in range(len(list_objs)):
