@@ -119,7 +119,7 @@ class TestBase(unittest.TestCase):
     def test_base_to_json_string_none(self):
         """ Test Cases for the base class. """
         json_string = Base.to_json_string(None)
-        self.assertEqual(json_string, [])
+        self.assertEqual(json_string, '[]')
 
     @classmethod
     def setUpClass(cls):
