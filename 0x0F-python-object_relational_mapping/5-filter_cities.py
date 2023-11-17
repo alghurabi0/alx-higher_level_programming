@@ -20,7 +20,8 @@ def filter_cities_by_state(username, password, database, state_name):
         cur = db.cursor()
 
         query = """
-            SELECT GROUP_CONCAT(cities.name ORDER BY cities.id ASC SEPARATOR ', ')
+            SELECT GROUP_CONCAT(cities.name
+            ORDER BY cities.id ASC SEPARATOR ', ')
             FROM cities
             JOIN states ON cities.state_id = states.id
             WHERE states.name = %s
@@ -47,7 +48,7 @@ def filter_cities_by_state(username, password, database, state_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
+        print("Usage: {} <usernaabase> <state_name>".format(sys.argv[0]))
         sys.exit(1)
 
     username, password, database, state_name = sys.argv[1:]
