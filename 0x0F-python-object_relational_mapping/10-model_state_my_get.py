@@ -5,7 +5,7 @@
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -16,9 +16,8 @@ if __name__ == "__main__":
                 sys.argv[3]
                 ))
     Base.metadata.create_all(engine)
-    Session = Session(bind=engine)
-
-    ession = Session()
+    Session = sessionmaker(bind=engine)
+    session = Session()
     instance = session.query(State).filter(State.name == (sys.argv[4],))
     try:
         print(instance[0].id)
