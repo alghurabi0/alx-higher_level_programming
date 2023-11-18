@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that chante object from the database hbtn_0e_6_usa
+"""Script that deletes all State objects with a name containing the letter 'a'
+   from the database hbtn_0e_6_usa
 """
 
 import sys
@@ -10,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     engine = create_engine(
-            'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+            'mysql+mysqldb://{}:{}@localhost/{}'.format(
                 sys.argv[1],
                 sys.argv[2],
                 sys.argv[3]))
@@ -19,7 +20,8 @@ if __name__ == "__main__":
 
     session = Session()
 
-    state_to_update = session.query(State).filter_by(id=2).first()
-    if state_to_update:
-        state_to_update.name = "New Mexico"
-        session.commit()
+    states_to = session.query(State).filter(State.name.like('%a%')).all()
+    for state in states_to:
+        session.delete(state)
+
+    session.commit()
