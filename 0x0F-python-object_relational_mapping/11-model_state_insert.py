@@ -5,7 +5,7 @@
 import sys
 from model_state import Base, State
 from sqlalchemy import (create_engine)
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -16,8 +16,7 @@ if __name__ == "__main__":
                 sys.argv[3]
                 ))
     Base.metadata.create_all(engine)
-    Session = Session(bind=engine)
-
+    Session = sessionmaker(bind=engine)
     session = Session()
 
     new_state = State(name="Louisiana")
