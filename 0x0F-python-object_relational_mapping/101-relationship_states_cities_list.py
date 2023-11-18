@@ -7,6 +7,7 @@ from relationship_state import Base, State
 from relationship_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import relationship
 
 
 if __name__ == "__main__":
@@ -16,6 +17,7 @@ if __name__ == "__main__":
                 sys.argv[2],
                 sys.argv[3]))
 
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
 
     session = Session()
